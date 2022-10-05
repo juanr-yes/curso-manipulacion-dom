@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <script>
+      const input = document.getElementById("firstName");
+
+      // addEventListener(evento, listener (que hacer cada vez que ocurra el evento))
+      const accion = () => alert("haz clickeado el input")
+      input.addEventListener("click", accion)
+      input.addEventListener("input", (event) => {
+        console.log("haz interactuado con el input")
+        console.log(event.data)
+      })
+
+      // removeEventListener(evento, listener): permite retirar el evento listener, solo funciona cuando se asignan funciones identificadas y no anonimas
+
+      //// Event Propagation: En el ejemplo podemos ver un caso de eventos anidados, donde se asignan eventos onclick al nieto, hijo y a un contenedor mismo, por lo que la acción ocurre tres veces en una sola interacción. Esto se puede limitar con stopPropagation(), por lo que la utilización de este metodo nos permite al clickear el elemento nieto, limitar el resto de acciones.
+
+      //// Event Delegation: En el ejemplo tenemos como intención capturar los click en los elementos H2 de nuestro workshop1, sin embargo la cantidad de listeners va a depender de la cantidad de elementos que traigamos desde la api. Para solucionar esto, el profesor sugiere escuchar los clicks del elemento padre validando cual nodo es el que se está clickeando para ejecutar la logica deseada.
+    </script>
+  </body>
+</html>

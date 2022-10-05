@@ -1,0 +1,8 @@
+@import 'tailwindcss/dist/base.css';
+@import 'tailwindcss/dist/components.css';
+@import 'tailwindcss/dist/utilities.css';
+
+img {
+  min-height: 100px;
+  background-color: lightgray;
+}

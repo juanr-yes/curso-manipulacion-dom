@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <script>
+      // document.createElement: crea un nodo, mas no lo agrega
+      document.createElement("h1")
+
+      // document.createTextNode: crea un nodo, mas no lo agrega. Si le enviamos HTML, se insertara como texto plano. 
+      document.createTextNode("Texto")
+
+      // document.appendChild: Crea un hijo del nodo de referencia. Requiere dos argumentos (nodo de referencia y nodo a incorporar)
+      const container = document.querySelector("div.className.anotherClassName");
+      const h3 = document.createElement("h3");
+      container.appendChild(h3);
+      const texto = document.createTextNode("Este es un nodo de texto");
+      h3.appendChild(texto);
+
+      // document.append: Evolución del appendChild, puedes agregar mas de un nodo, puedes agregar texto (osea, no necesariamente un nodo) mas no funciona adecuadamente en IE
+      container.append("Este es un texto que se incorporara como hijo del 'container'", document.createElement("div")) // Insertará el texto como hermano del div y ambos como hijos de 'container'
+
+      // document.insertBefore: Inserta un elemento antes del nodo de referencia, recibe como parametros el nodo a insertar y el nodo de referencia
+      document.insertBefore(h3, container)
+
+      // document.insertAdjacentElement: recibe como parametro una de las opciones que puede ser beforebegin (que lo crea antes del elemento de referencia), afterbegin (que lo crea como hijo de el elemento de referencia, justo despues de su inicio), beforeend (que lo crea como hijo de el elemento de referencia, justo antes de terminar) y afterend (que lo crea despues del elemento de referencia) y el nodo a insertar
+
+      // node.outerHTML: devuelve como string la misma etiqueta con su contenido
+      // node.innerHTML: devuelve como string el contenido de la etiqueta, este permite reinicializarlo para actualizar su contenido. Permite la utilización de etiquetas HTML
+
+      // Atributos y propiedades: En el inspector de elemento colocando un punto '.' despues de un nodo podemos acceder a diferentes identificadores para manipularlo, como "value"
+
+      //// Eliminar nodos
+
+      // referencia.removeChild(nodoAEliminar): Remueve un hijo de la referencia que tendremos que especificar.
+
+      //// TIP: .parentElement nos retorna el elemento padre de un nodo
+
+      // referencia.remove(nodoAEliminar): Evolucion de removeChild, tampoco soportado en IE. Permite eliminar directamente el nodo referenciado
+
+      // referencia.replaceChild(nodoReemplazante, nodoAReemplazar)
+
+      //// Operaciones en lote: Es importante reducir el numero de operaciones que modifican el DOM
+      // .append() tambien recibe arrays mediante el spread operator
+    </script>
+  </body>
+</html>

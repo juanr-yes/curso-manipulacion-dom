@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <script>
+      // Selector de clases
+      let classSelector = document.getElementsByClassName("className") // colección de elementos que coincidan con la clase
+
+      // Selector de IDs
+      let idSelector = document.getElementById("idName") // elemento que tenga este ID
+
+      // Selector de Etiquetas
+      let tagSelector = document.getElementsByTagName("input") // coleccion de elementos que coincidan con la etiqueta
+
+      // Query Selector; permite ocupar nomenclatura CSS para referirse a elementos del DOM. Resultados en Nodos
+      let querySelector1 = document.querySelector("#idName")
+      let querySelector2 = document.querySelector(".className")
+      let querySelector3 = document.querySelector("div[class='className']")
+
+      // Query Selector All
+      let querySelectorAll = document.querySelectorAll(".className")
+
+      // Nodos vs Arrays
+      const nodeList = document.querySelectorAll("div"); // resulta en un nodelist, incluye metodos como length o forEach mas no map, some, filter o reduce
+
+      const nodeListAsArray = [...nodeList]; // alternativa para convertir un nodeList a un arreglo utilizando el spread operator
+    </script>
+  </body>
+</html>
