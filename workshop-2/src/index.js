@@ -2,7 +2,8 @@ import {registerImage} from './lazy';
 
 const API = "https://randomfox.ca/";
 const appNode = document.getElementById("images");
-const addImage = document.querySelector("button");
+const addImage = document.querySelector("button#loadMore");
+const clearImages = document.querySelector("button#clear");
 
 async function fetchData(urlApi) {
   const response = await fetch(urlApi);
@@ -29,4 +30,10 @@ const getImage = async (urlApi) => {
 
 addImage.addEventListener("click", () => {
   getImage(API)
+  requestsCount++;
+  console.log(`Solicitudes de carga realizadas: ${requestsCount}. Imagenes cargadas: ${loadedCount}`)
 });
+
+clearImages.addEventListener("click", () => {
+  appNode.innerHTML = '';
+})
